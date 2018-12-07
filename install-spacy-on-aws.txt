@@ -1,0 +1,26 @@
+wget https://repo.anaconda.com/archive/Anaconda3-5.3.1-Linux-x86_64.sh
+
+bash Anaconda3-5.3.1-Linux-x86_64.sh
+# cleanup, make room for spacy vectors install
+rm Anaconda3-5.3.1-Linux-x86_64.sh
+
+pip install --upgrade pip
+
+conda install -c conda-forge spacy
+
+python -m spacy download en
+# --or--
+# python -m spacy download en_core_web_lg
+
+python -m spacy validate
+
+git clone https://github.com/deepily/trump-nlp-evolution.git
+
+cd trump-nlp-evolution
+
+git config --global user.name deepily
+git config --global user.email ricey@valeso.com
+
+jupyter notebook
+
+ssh -i /Users/rruiz-at-work/Certs/DoL/ruiz.richard.p-AT-wips-dev-n-test.pem -N -L 8888:localhost:8888 ruiz.richard.p@wipsdev.appteon.net
